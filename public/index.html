@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Motor Control</title>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+margin-top:50px;
+}
+
+button{
+width:120px;
+height:50px;
+font-size:20px;
+margin:10px;
+}
+
+input{
+width:300px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>ESP32 Motor Control</h1>
+
+<button onclick="sendSpeed(255)">
+ON
+</button>
+
+<button onclick="sendSpeed(0)">
+OFF
+</button>
+
+<br><br>
+
+<input type="range"
+min="0"
+max="255"
+onchange="sendSpeed(this.value)">
+
+<script>
+
+function sendSpeed(value){
+
+fetch('/setSpeed?value=' + value);
+}
+
+</script>
+
+</body>
+</html>
